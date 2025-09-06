@@ -1,0 +1,117 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "MOSI",
+					"strict" : false
+				},
+				{
+					"name" : "CS",
+					"strict" : false
+				},
+				{
+					"name" : "SCLK",
+					"strict" : false
+				},
+				{
+					"name" : "LEDS[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDS[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDS[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDS[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDS[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDS[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDS[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDS[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDS[8]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDS[9]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_EN",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_RS",
+					"strict" : false
+				},
+				{
+					"name" : "DETECT",
+					"strict" : false
+				},
+				{
+					"name" : "LCD1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD1[7]",
+					"strict" : false
+				},
+				{
+					"name" : "reset_master",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "MISO",
+					"strict" : false
+				},
+				{
+					"name" : "reset_lcd",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

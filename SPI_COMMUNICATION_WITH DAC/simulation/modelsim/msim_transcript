@@ -1,0 +1,56 @@
+# Reading C:/intelFPGA_lite/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do TaskB_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {D:/ACADS/BOOKS_AND_LECTURES_SEM3/EE214/PROJECT/DAC/TaskB/TaskB/sinwave.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:09:08 on Nov 05,2024
+# vcom -reportprogress 300 -93 -work work D:/ACADS/BOOKS_AND_LECTURES_SEM3/EE214/PROJECT/DAC/TaskB/TaskB/sinwave.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity sinwave
+# -- Compiling architecture logic of sinwave
+# End time: 12:09:08 on Nov 05,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -93 -work work {D:/ACADS/BOOKS_AND_LECTURES_SEM3/EE214/PROJECT/DAC/TaskB/TaskB/Testbench.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:09:08 on Nov 05,2024
+# vcom -reportprogress 300 -93 -work work D:/ACADS/BOOKS_AND_LECTURES_SEM3/EE214/PROJECT/DAC/TaskB/TaskB/Testbench.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Testbench
+# -- Compiling architecture test of Testbench
+# End time: 12:09:08 on Nov 05,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  Testbench
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" Testbench 
+# Start time: 12:09:08 on Nov 05,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.testbench(test)
+# ** Warning: (vsim-3473) Component instance "uut : master" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench File: D:/ACADS/BOOKS_AND_LECTURES_SEM3/EE214/PROJECT/DAC/TaskB/TaskB/Testbench.vhd
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# Break key hit
+# Simulation stop requested.
+# End time: 12:09:39 on Nov 05,2024, Elapsed time: 0:00:31
+# Errors: 0, Warnings: 1

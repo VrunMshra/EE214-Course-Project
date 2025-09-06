@@ -1,0 +1,42 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+entity top is
+port (clk,miso,reset,reset1: in std_logic; clkl,mosi,cs,lcd_rw,lcd_en,lcd_rs,detect : out std_logic;lcd1 : out  std_logic_vector(7 downto 0));
+end entity ;
+
+architecture a of top is 
+
+component test is
+	port(
+		  inp 			: in std_logic_vector(9 downto 0);
+		  clk			: in  std_logic;
+		  rst 			: in  std_logic;
+		  lcd_rw 		: out std_logic;                         	--read & write control
+     	  lcd_en 		: out std_logic;                         	--enable control
+          lcd_rs 		: out std_logic;                         	--data or command control
+          lcd1  		: out std_logic_vector(7 downto 0);			--see pin planning in krypton manual 
+		  detect 		: out std_logic
+		  );
+end component;
+component master is 
+
+port (  clk   : in std_logic;     
+        reset : in std_logic;     -- Reset signal
+        miso  : in std_logic;     -- Master In Slave Out, input from slave
+        mosi  : out std_logic;    -- Master Out Slave In, output to slave
+        cs    : out std_logic;    -- Chip select, output to slave
+        sclk  : out std_logic;
+		  reg_a : out STD_LOGIC_VECTOR(9 downto 0) := (others => '0');
+		  out_clk : out std_logic);
+
+end component;
+signal data : std_logic_vector(9 downto 0);
+signal clkledin : std_logic;
+begin
+
+ms1 : master port map (miso =>miso,clk => clk,reset =>reset,out_clk => clkledin,sclk=>clkl,mosi=>mosi,cs=>cs,reg_a => data);
+l1 : test port map (inp => data,clk =>clkledin,rst=>reset1,lcd_rw => lcd_rw,lcd_en =>lcd_en,lcd_rs =>lcd_rs,lcd1 => lcd1,detect => detect);
+end architecture;

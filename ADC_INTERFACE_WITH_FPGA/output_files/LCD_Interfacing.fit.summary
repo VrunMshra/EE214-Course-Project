@@ -1,0 +1,18 @@
+Fitter Status : Successful - Wed Oct 30 21:26:28 2024
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : LCD_Interfacing
+Top-level Entity Name : top
+Family : MAX 10
+Device : 10M25SAE144C8G
+Timing Models : Final
+Total logic elements : 398 / 24,960 ( 2 % )
+    Total combinational functions : 388 / 24,960 ( 2 % )
+    Dedicated logic registers : 216 / 24,960 ( < 1 % )
+Total registers : 216
+Total pins : 29 / 101 ( 29 % )
+Total virtual pins : 0
+Total memory bits : 0 / 691,200 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 110 ( 0 % )
+Total PLLs : 0 / 1 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 1 ( 0 % )

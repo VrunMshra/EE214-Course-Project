@@ -1,0 +1,57 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "SCLK_out",
+					"strict" : false
+				},
+				{
+					"name" : "CS_out",
+					"strict" : false
+				},
+				{
+					"name" : "MISO_out",
+					"strict" : false
+				},
+				{
+					"name" : "MOSI_out",
+					"strict" : false
+				},
+				{
+					"name" : "data_masterin[0]",
+					"strict" : false
+				},
+				{
+					"name" : "data_masterin[1]",
+					"strict" : false
+				},
+				{
+					"name" : "data_masterin[2]",
+					"strict" : false
+				},
+				{
+					"name" : "data_slavein[0]",
+					"strict" : false
+				},
+				{
+					"name" : "data_slavein[1]",
+					"strict" : false
+				},
+				{
+					"name" : "data_slavein[2]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

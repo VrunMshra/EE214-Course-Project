@@ -1,0 +1,92 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity master is 
+    port(
+        clk     : in  std_logic;     -- System clock input
+        reset   : in  std_logic;     -- Active high reset
+        miso    : in  std_logic;     -- Master In Slave Out (10 bits)
+        mosi    : out std_logic;     -- Master Out Slave In (5 bits)
+        cs      : out std_logic;     -- Chip select, active low
+        sclk    : out std_logic;     -- SPI clock output
+        LEDS    : out std_logic_vector(7 downto 0) -- LEDs to display received data
+    );
+end entity master;
+
+architecture logic of master is 
+    signal sclk_internal    : std_logic := '0';    -- Internal SPI clock
+    signal clk_counter      : integer range 0 to 24 := 0;  
+    signal bit_counter      : integer range 0 to 20 := 0;  
+    signal datatransmitted  : std_logic_vector(4 downto 0) := "00011";  
+    signal cs_internal      : std_logic := '1';
+    signal data_in          : std_logic_vector(9 downto 0) := (others => '0');
+
+begin
+
+    -- Clock Divider Process
+    process(clk, reset)
+    begin
+        if (reset = '1') then
+            clk_counter <= 0;
+            sclk_internal <= '0';    
+        elsif rising_edge(clk) then
+            if clk_counter = 24 then  
+                clk_counter <= 0;
+                sclk_internal <= not sclk_internal;  
+            else 
+                clk_counter <= clk_counter + 1;
+            end if;
+        end if;
+    end process;
+    
+    -- Data Transmission Process
+    process(sclk_internal, reset)
+    begin
+        if reset = '1' then
+            mosi <= '0';             
+            bit_counter <= 0;
+            cs_internal <= '1';      
+        elsif falling_edge(sclk_internal) then
+            if (bit_counter = 0) then
+                cs_internal <= '0';  -- Start transmission by activating CS
+            end if;
+            
+            if (cs_internal = '0') then
+                -- Transmit data bits
+                if (bit_counter < 5) then
+                    mosi <= datatransmitted(bit_counter);
+                else
+                    mosi <= '0';  
+                end if;
+                -- Bit counter management
+                if bit_counter < 19 then
+                    bit_counter <= bit_counter + 1;
+                elsif bit_counter = 19 then
+                    cs_internal <= '1';  
+                end if;
+            else
+                mosi <= '0';  
+            end if;
+        end if;
+    end process;
+ 
+    process(sclk_internal, reset)
+    begin
+        if reset = '1' then 
+            data_in <= (others => '0');  
+            LEDS <= (others => '0');     
+        elsif rising_edge(sclk_internal) then
+            if (cs_internal = '0') and (bit_counter > 7) and (bit_counter < 18) then
+                data_in(17-bit_counter) <= miso;  
+            end if;
+            
+            if (cs_internal = '1') then
+                LEDS <= data_in(9 downto 2);  
+            end if;
+        end if;
+    end process;
+
+    sclk <= sclk_internal;
+    cs <=  cs_internal;
+    
+end architecture logic;

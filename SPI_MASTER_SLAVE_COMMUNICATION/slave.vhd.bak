@@ -1,0 +1,42 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity spi_slave is 
+    port(
+        clk   : in std_logic;      -- SPI clock from master
+        miso  : out std_logic;     -- Slave to master (output)
+        mosi  : in std_logic;      -- Master to slave (input)
+        cs    : in std_logic       -- Chip select from master (input)
+    );
+end entity spi_slave;
+
+architecture logic of spi_slave is 
+    signal datatransmitted : std_logic_vector(7 downto 0) := "00000111";  -- Data to be sent to master
+    signal datareceived    : std_logic_vector(7 downto 0) := "00000000";  -- Data received from master
+    signal miso_reg        : std_logic := '0';  -- Register to hold MISO value
+begin
+    -- Process to sample data from MOSI on the rising edge of SPI clock when cs is active
+    receive_process: process(clk)
+    begin
+        if rising_edge(clk) then
+            if cs = '0' then  -- Only operate when chip select is low (slave is selected)
+                datareceived <= datareceived(6 downto 0) & mosi;  -- Shift left and capture MOSI
+            end if;
+        end if;
+    end process receive_process;
+
+    -- Process to transmit data on MISO on the falling edge of SPI clock when cs is active
+    transmit_process: process(clk)
+    begin
+        if falling_edge(clk) then
+            if cs = '0' then  -- Only operate when chip select is low (slave is selected)
+                miso_reg <= datatransmitted(7);  -- Transmit MSB on MISO
+                datatransmitted <= datatransmitted(6 downto 0) & '0';  -- Shift left for next bit
+            end if;
+        end if;
+    end process transmit_process;
+
+    -- Assign MISO output
+    miso <= miso_reg when cs = '0' else 'Z';
+
+end architecture logic;

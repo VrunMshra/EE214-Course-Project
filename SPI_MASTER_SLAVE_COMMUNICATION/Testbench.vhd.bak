@@ -1,0 +1,51 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity Testbench is
+end entity Testbench;
+
+architecture test of Testbench is
+    signal clk : std_logic := '0';
+    signal reset : std_logic := '1';
+    
+    -- Signal to capture data from Master and Slave
+    signal master_data_received : std_logic_vector(7 downto 0);
+    signal slave_data_received : std_logic_vector(7 downto 0);
+    
+    component spi_top is
+        port(
+            clk   : in std_logic;
+            reset : in std_logic
+        );
+    end component;
+
+begin
+    -- Clock generation
+    clk <= not clk after 10 ns;
+
+    -- Instantiate the SPI top-level module
+    uut: spi_top
+        port map(
+            clk => clk,
+            reset => reset
+        );
+
+    -- Reset release after 100 ns
+    process
+    begin
+        wait for 100 ns;
+        reset <= '0';
+        wait;
+    end process;
+    
+    -- Monitor data exchange between Master and Slave
+--    process(clk)
+--    begin
+--        if rising_edge(clk) then
+--            report "Master received: " & std_logic_vector(master_data_received);
+--            report "Slave received: " & std_logic_vector(slave_data_received);
+--        end if;
+--    end process;
+
+end architecture test;

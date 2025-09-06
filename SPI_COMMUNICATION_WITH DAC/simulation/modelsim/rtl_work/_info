@@ -1,0 +1,88 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/ACADS/BOOKS_AND_LECTURES_SEM3/EE214/PROJECT/DAC/TaskB/TaskB/simulation/modelsim
+Esinwave
+Z1 w1730629186
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z4 8D:/ACADS/BOOKS_AND_LECTURES_SEM3/EE214/PROJECT/DAC/TaskB/TaskB/sinwave.vhd
+Z5 FD:/ACADS/BOOKS_AND_LECTURES_SEM3/EE214/PROJECT/DAC/TaskB/TaskB/sinwave.vhd
+l0
+L3
+V;^PW<WHCN_07]XW`gF]Zm0
+!s100 oYlDUEb72iG3<fQX`E><Z3
+Z6 OV;C;10.5b;63
+31
+Z7 !s110 1730788748
+!i10b 1
+Z8 !s108 1730788748.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|D:/ACADS/BOOKS_AND_LECTURES_SEM3/EE214/PROJECT/DAC/TaskB/TaskB/sinwave.vhd|
+Z10 !s107 D:/ACADS/BOOKS_AND_LECTURES_SEM3/EE214/PROJECT/DAC/TaskB/TaskB/sinwave.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Alogic
+R2
+R3
+DEx4 work 7 sinwave 0 22 ;^PW<WHCN_07]XW`gF]Zm0
+l27
+L18
+V4nf7l5N7YTzHY:J0:UI=`1
+!s100 EQB3c0AaT;NS7>hcWna0c2
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Etestbench
+Z13 w1730524097
+R2
+R3
+R0
+Z14 8D:/ACADS/BOOKS_AND_LECTURES_SEM3/EE214/PROJECT/DAC/TaskB/TaskB/Testbench.vhd
+Z15 FD:/ACADS/BOOKS_AND_LECTURES_SEM3/EE214/PROJECT/DAC/TaskB/TaskB/Testbench.vhd
+l0
+L4
+V@gdm2G=mL58]ejlc^U:[b0
+!s100 ^A72[EW2X]2^Ee[f0k]6D1
+R6
+31
+R7
+!i10b 1
+R8
+Z16 !s90 -reportprogress|300|-93|-work|work|D:/ACADS/BOOKS_AND_LECTURES_SEM3/EE214/PROJECT/DAC/TaskB/TaskB/Testbench.vhd|
+Z17 !s107 D:/ACADS/BOOKS_AND_LECTURES_SEM3/EE214/PROJECT/DAC/TaskB/TaskB/Testbench.vhd|
+!i113 1
+R11
+R12
+Atest
+R2
+R3
+DEx4 work 9 testbench 0 22 @gdm2G=mL58]ejlc^U:[b0
+l31
+L7
+VeYW<;^NgSo[JD;kB>6?1N0
+!s100 6aY2nhZQMUISB=aEa^DLN3
+R6
+31
+R7
+!i10b 1
+R8
+R16
+R17
+!i113 1
+R11
+R12

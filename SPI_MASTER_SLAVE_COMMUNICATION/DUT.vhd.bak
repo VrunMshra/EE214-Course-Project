@@ -1,0 +1,31 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity DUT is
+    port(
+        clk   : in std_logic;
+        reset : in std_logic
+    );
+end entity DUT;
+
+architecture structure of DUT is
+    signal mosi_master, miso_slave : std_logic;
+    signal cs_master : std_logic;
+begin
+    master_inst: entity work.spi_master
+        port map(
+            clk => clk,
+            reset => reset,
+            miso => miso_slave,
+            mosi => mosi_master,
+            cs => cs_master
+        );
+
+    slave_inst: entity work.spi_slave
+        port map(
+            clk => clk,
+            mosi => mosi_master,
+            miso => miso_slave,
+            cs => cs_master);
+end architecture structure;
+

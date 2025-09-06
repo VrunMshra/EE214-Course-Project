@@ -1,0 +1,75 @@
+|DUT
+clk => master:master_inst.clk
+SCLK_out << master:master_inst.sclk
+reset => master:master_inst.reset
+reset => slave:slave_inst.reset
+CS_out << master:master_inst.cs
+MISO_out << slave:slave_inst.SDO
+MOSI_out << master:master_inst.mosi
+data_masterin[0] << master:master_inst.data_in[0]
+data_masterin[1] << master:master_inst.data_in[1]
+data_masterin[2] << master:master_inst.data_in[2]
+data_slavein[0] << slave:slave_inst.data_in[0]
+data_slavein[1] << slave:slave_inst.data_in[1]
+data_slavein[2] << slave:slave_inst.data_in[2]
+
+
+|DUT|master:master_inst
+clk => sclk_gen.CLK
+clk => clk_counter[0].CLK
+clk => clk_counter[1].CLK
+clk => clk_counter[2].CLK
+reset => data_in[0]~reg0.ACLR
+reset => data_in[1]~reg0.ACLR
+reset => data_in[2]~reg0.ACLR
+reset => cs_gen.PRESET
+reset => bit_counter[0].ACLR
+reset => bit_counter[1].ACLR
+reset => bit_counter[2].ACLR
+reset => mosi~reg0.ACLR
+reset => sclk_gen.ACLR
+reset => clk_counter[0].ACLR
+reset => clk_counter[1].ACLR
+reset => clk_counter[2].ACLR
+miso => data_in.DATAB
+miso => data_in.DATAB
+miso => data_in.DATAB
+mosi <= mosi~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cs <= cs_gen.DB_MAX_OUTPUT_PORT_TYPE
+sclk <= sclk_gen.DB_MAX_OUTPUT_PORT_TYPE
+data_in[0] <= data_in[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_in[1] <= data_in[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_in[2] <= data_in[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|slave:slave_inst
+sclk => data_in[0]~reg0.CLK
+sclk => data_in[1]~reg0.CLK
+sclk => data_in[2]~reg0.CLK
+sclk => SDO~reg0.CLK
+sclk => bit_counter[0].CLK
+sclk => bit_counter[1].CLK
+sclk => bit_counter[2].CLK
+reset => data_in[0]~reg0.ACLR
+reset => data_in[1]~reg0.ACLR
+reset => data_in[2]~reg0.ACLR
+reset => SDO~reg0.ACLR
+reset => bit_counter[0].ACLR
+reset => bit_counter[1].ACLR
+reset => bit_counter[2].ACLR
+SDO <= SDO~reg0.DB_MAX_OUTPUT_PORT_TYPE
+SDI => data_in.DATAB
+SDI => data_in.DATAB
+SDI => data_in.DATAB
+cs => SDO.OUTPUTSELECT
+cs => data_in.OUTPUTSELECT
+cs => data_in.OUTPUTSELECT
+cs => data_in.OUTPUTSELECT
+cs => bit_counter[2].ENA
+cs => bit_counter[1].ENA
+cs => bit_counter[0].ENA
+data_in[0] <= data_in[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_in[1] <= data_in[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_in[2] <= data_in[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
